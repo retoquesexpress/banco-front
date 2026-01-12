@@ -1,11 +1,18 @@
-<header class="header">
-    <img class="header__logo" routerLink="/inicio" src="/assets/LogoExpress.png">
-    <h1 class="g--color-light g--font-size-5 g--font-family-titulos">Admin Panel</h1>
-    <ul class="header__nav-list">
-    <li class="header__nav-item"><a class="header__nav-link" routerLink="/servicios">Gestión Servicios</a></li>
-    </ul>
-      <ul class="header__nav-list">
-    <li class="header__nav-item"><a class="header__nav-link" routerLink="/categorias">Gestión Categorias</a></li>
-    </ul>
+<header class="bank-header">
+  <div class="logo-container">
+    <div class="bank-logo"></div>
+    <span class="bank-name">Banco Confianza</span>
+  </div>
+
+  <nav class="nav-links">
+    <a routerLink="/dashboard" routerLinkActive="active">Resumen</a>
+    <a routerLink="/transferencias" routerLinkActive="active">Transferir</a>
+    <a routerLink="/tarjetas" routerLinkActive="active">Tarjetas</a>
+  </nav>
+
+  <div class="user-actions">
+    <span class="welcome-text">Hola, <strong>Juan Pérez</strong></span>
+    <button class="btn-logout">Salir</button>
+  </div>
 </header>
 

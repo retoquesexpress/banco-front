@@ -1,41 +1,72 @@
-.header {
-    --header-padding: var(--mlt-sys-padding-12);
-    --header-height: var(--mlt-sys-height-80);
-    --header-bg-color: var(--mlt-sys-primary);
-
-    --header-logo-width: var(--mlt-sys-width-80);
-    --header-logo-margin-left: var(--mlt-sys-margin-1);
-
-    --header-nav-gap: var(--mlt-sys-gap-10);
-    --header-nav-font-size: var(--mlt-sys-font-size-16);
-    --header-nav-font-family: var(--mlt-sys-font-textos1);
-    --header-nav-link-color: var(--mlt-sys-light);
-
-    display: flex;
-    align-items: center;
-    padding: var(--header-padding);
-    height: var(--header-height);
-    background-color: var(--header-bg-color);
-
-
-&__logo {
-    width: var(--header-logo-width);
-    margin-left: var(--header-logo-margin-left);
-    margin-right: auto;
+.bank-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 70px;
+  background-color: #003366; /* Azul bancario */
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-&__nav-list {
-    list-style: none;
-    display: flex;
-    font-size: var(--header-nav-font-size);
-    font-family: var(--header-nav-font-family);
-    gap: var(--header-nav-gap);
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-&__nav-link {
-    color: var(--header-nav-link-color);
-    text-decoration: none;
+.bank-logo {
+  width: 35px;
+  height: 35px;
+  background-color: #ffcc00; /* Color de acento (ej. Oro) */
+  border-radius: 4px;
 }
 
+.bank-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: #ffffff;
+  border-bottom: 2px solid #ffcc00;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.welcome-text {
+  font-size: 0.9rem;
+}
+
+.btn-logout {
+  background-color: transparent;
+  border: 1px solid #ffcc00;
+  color: #ffcc00;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-logout:hover {
+  background-color: #ffcc00;
+  color: #003366;
 }

@@ -1,0 +1,142 @@
+.accounts-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- HEADER SUMMARY --- */
+.summary-card {
+  background: linear-gradient(135deg, #003366 0%, #001f3f 100%);
+  border-radius: 16px;
+  padding: 2.5rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
+}
+
+.summary-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.total-amount {
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* --- LISTADO --- */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.count-badge {
+  background: #e2e8f0;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.account-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 8px 2fr 1fr 1.5fr 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #f1f5f9;
+}
+
+.account-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.account-visual {
+  height: 40px;
+  width: 8px;
+  border-radius: 4px;
+}
+
+.account-type {
+  display: block;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.account-id {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.account-status {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.dot.active { background: #10b981; }
+.dot.frozen { background: #f59e0b; }
+
+.account-balance {
+  text-align: right;
+}
+
+.balance-value {
+  display: block;
+  font-weight: 700;
+  color: #003366;
+  font-size: 1.1rem;
+}
+
+.balance-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.account-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.btn-icon {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-icon:hover {
+  background: #e2e8f0;
+}
+
+.btn-primary {
+  background: #ffcc00;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #003366;
+  cursor: pointer;
+}
