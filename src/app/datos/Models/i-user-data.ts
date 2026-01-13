@@ -1,17 +1,31 @@
-export interface Card {
-  id: string;
-  brand: 'Visa' | 'Mastercard' | 'Amex';
-  lastFour: string;
-  expiryDate: string;
-  isDefault: boolean;
-  balance: number;
+export enum MovementType {
+  RETIRAR = 'RETIRAR',
+  DEPOSITAR = 'DEPOSITAR'
 }
 
-export interface Payment {
-  id: string;
-  date: Date;
-  amount: number;
-  description: string;
-  status: 'Completed' | 'Pending' | 'Failed';
+export enum OriginMovement {
+  TRANSFERENCIA = 'TRANSFERENCIA',
+  DOMILICIACION = 'DOMILICIACION',
+  TARJETA_BANCARIA = 'TARJETA_BANCARIA'
+}
+
+export interface Card {
+
+  idCreditCard: Number;
+  cardNumber: String;
+  expirationDate: String;
+  cvv: Number;
+  clientName: String;
+}
+
+export interface AccountMovement {
+  
+    idAccountMovement:number;
+    creditCardOrigin:string;
+    originMovement:OriginMovement;
+    date:Date;
+    amount:number;
+    movementType:MovementType;
+    concept:string;
 }
 

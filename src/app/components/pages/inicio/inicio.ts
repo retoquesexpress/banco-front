@@ -10,6 +10,23 @@ import { RouterLink } from "@angular/router";
   styleUrl: './inicio.scss'
 })
 export class Inicio {
+ //Conectado Con Backend Próximamente:
+  //  accounts!: Account[];
+  
+  // constructor(private mihttp: SFuncionalidades) { }
+  // ngOnInit() {
+  //   this.CargarCuentas();
+  // }
+  //CargarCuentas(){this.mihttp.getAccounts().subscribe({
+  //   next: (data) => {
+  //     this.accounts = data;
+  //   },
+  //   error: (err) => console.error('Error al cargar las Cuentas:', err)
+  // });}
+
+
+ //Datos Simulados Hasta Conexión Backend:
+
   accounts: Account[] = [
     { id: '1', type: 'Cuenta de Ahorros', accountNumber: 'ES21 •••• 4567', balance: 12540.25, currency: 'EUR', status: 'active', colorTag: '#6366f1' },
     { id: '2', type: 'Nómina Directa', accountNumber: 'ES21 •••• 8812', balance: 2800.00, currency: 'EUR', status: 'active', colorTag: '#10b981' },

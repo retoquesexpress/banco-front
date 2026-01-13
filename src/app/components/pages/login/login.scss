@@ -1,0 +1,141 @@
+:host {
+  --login-bg: var(--mlt-sys-color-background-main);
+  --login-container-bg: var(--mlt-sys-color-white);
+  --login-primary: var(--mlt-sys-color-brand-primary);
+  --login-secondary: var(--mlt-sys-color-brand-secondary);
+  --login-secondary-hover: var(--mlt-sys-color-brand-secondary-hover);
+  --login-text: var(--mlt-sys-color-text-primary);
+  --login-text-muted: var(--mlt-sys-color-text-secondary);
+  --login-error-bg: var(--mlt-sys-color-background-retirar);
+  --login-error-text: var(--mlt-sys-color-text-negative);
+  --login-border: var(--mlt-sys-color-border-medium);
+  --login-shadow: var(--mlt-sys-shadow-subtle);
+  --login-radius: var(--mlt-sys-radius-4);
+}
+
+.login {
+  min-height: 100vh;
+  background-color: var(--login-bg);
+  font-family: var(--mlt-sys-font-textos1), system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--mlt-sys-spacer-0);
+
+  &__container {
+    background-color: var(--login-container-bg);
+    padding: var(--mlt-sys-spacer-40);
+    border-radius: var(--login-radius);
+    box-shadow: var(--login-shadow);
+    width: var(--mlt-sys-spacer-100p);
+    max-width: var(--mlt-sys-width-420);
+    border-top: var(--mlt-sys-spacer-8) solid var(--login-primary);
+  }
+
+  &__title {
+    color: var(--login-primary);
+    font-size: var(--mlt-sys-font-size-15r);
+    margin-bottom: var(--mlt-sys-spacer-8);
+    text-align: center;
+    font-weight: var(--mlt-sys-font-weight-bold);
+  }
+
+  &__subtitle {
+    color: var(--login-text-muted);
+    font-size: var(--mlt-sys-font-size-0875r);
+    text-align: center;
+    margin-bottom: var(--mlt-sys-spacer-30);
+  }
+
+  &__field {
+    margin-bottom: var(--mlt-sys-spacer-20);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-weight: var(--mlt-sys-font-weight-semibold);
+    color: var(--login-primary);
+    margin-bottom: var(--mlt-sys-spacer-8);
+    font-size: var(--mlt-sys-font-size-08r);
+    text-transform: uppercase;
+  }
+
+  &__input {
+    padding: var(--mlt-sys-spacer-12) var(--mlt-sys-spacer-15);
+    border: 1px solid var(--login-border);
+    border-radius: var(--login-radius);
+    font-size: var(--mlt-sys-font-size-10r);
+    color: var(--mlt-sys-color-text-dark);
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: var(--login-primary);
+      box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+    }
+  }
+
+  &__error-message {
+    background-color: var(--login-error-bg);
+    color: var(--login-error-text);
+    padding: var(--mlt-sys-spacer-12);
+    border-radius: var(--login-radius);
+    font-size: var(--mlt-sys-font-size-08r);
+    margin-bottom: var(--mlt-sys-spacer-15);
+    border: 1px solid var(--mlt-sys-color-border-light);
+    text-align: center;
+  }
+
+  &__register {
+    display: block;
+    text-align: center;
+    color: var(--login-primary);
+    text-decoration: none;
+    font-size: var(--mlt-sys-font-size-0875r);
+    font-weight: var(--mlt-sys-font-weight-semibold);
+    margin-bottom: var(--mlt-sys-spacer-25);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mlt-sys-spacer-12);
+  }
+
+  &__button {
+    padding: var(--mlt-sys-spacer-14);
+    border-radius: var(--login-radius);
+    font-weight: var(--mlt-sys-font-weight-bold);
+    cursor: pointer;
+    font-size: var(--mlt-sys-font-size-09r);
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border: none;
+
+    &:first-of-type {
+      background-color: var(--login-secondary);
+      color: var(--login-primary);
+
+      &:hover {
+        background-color: var(--login-secondary-hover);
+        box-shadow: var(--mlt-sys-shadow-btn-hover);
+      }
+    }
+
+    &:last-of-type {
+      background-color: transparent;
+      color: var(--login-primary);
+      border: 1px solid var(--login-primary);
+
+      &:hover {
+        background-color: var(--login-primary);
+        color: var(--mlt-sys-color-white);
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@use "sass:map";
+@use '../01_utilities/_variables' as utilities;
+
+:root {
+    @each $key, $value in utilities.$letter-spacing {
+        --mlt-sys-letter-spacing-#{$key}: #{$value};
+    }
+}

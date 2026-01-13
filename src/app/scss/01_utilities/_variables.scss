@@ -1,4 +1,149 @@
 $font-families: (
-  titulos: 'Poppins',
-  textos1: 'Sorts Mill Goudy'
+  titulos: 'Inter',
+  textos1: 'Inter'
+);
+
+$colors: (
+  background-main: #f1f5f9,
+  background-table-header: #f8fafc,
+  background-empty: #f8fafc,
+  background-retirar: #fee2e2,
+  background-depositar: #dcfce7,
+  text-primary: #0f172a,
+  text-secondary: #64748b,
+  text-muted: #94a3b8,
+  text-dark: #1e293b,
+  text-positive: #16a34a,
+  text-negative: #dc2626,
+  text-retirar: #dc2626,
+  text-depositar: #16a34a,
+  brand-primary: #003366,
+  brand-primary-dark: #001f3f,
+  brand-secondary: #ffcc00,
+  brand-secondary-hover: #e6b800,
+  border-light: #f1f5f9,
+  border-medium: #e2e8f0,
+  status-active: #10b981,
+  status-frozen: #f59e0b,
+  white: #ffffff
+);
+
+$widths: (
+  // Layout
+  1100: 1100px,
+  1000: 1000px,
+  100p: 100%,
+
+  // Components
+  320: 320px,
+  200: 200px,
+  420: 420px,
+  70: 70px,
+  42: 42px,
+  40: 40px,
+  35: 35px,
+  32: 32px,
+  8: 8px
+);
+
+$gradients: (
+  visa: linear-gradient(135deg, #1e40af 0%, #1e1b4b 100%),
+  mastercard: linear-gradient(135deg, #444 0%, #111 100%),
+  summary: linear-gradient(135deg, #003366 0%, #001f3f 100%),
+  chip: linear-gradient(135deg, #d4af37 0%, #f9d976 50%, #d4af37 100%)
+);
+
+$shadows: (
+  realistic: (0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)),
+  realistic-hover: 0 30px 40px -10px rgba(0, 0, 0, 0.25),
+  subtle: 0 4px 15px rgba(0, 0, 0, 0.05),
+  card: 0 10px 20px rgba(0, 51, 102, 0.2),
+  header: 0 2px 10px rgba(0, 0, 0, 0.1),
+  btn-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1)
+);
+
+$spacers: (
+  // Pixel based
+  0: 0,
+  2: 2px,
+  4: 4px,
+  5: 5px,
+  8: 8px,
+  10: 10px,
+  12: 12px,
+  14: 14px,
+  15: 15px,
+  16: 16px,
+  20: 20px,
+  24: 24px,
+  25: 25px,
+  30: 30px,
+  32: 32px,
+  40: 40px,
+  48: 48px,
+  64: 64px,
+  80: 80px,
+  96: 96px,
+
+  // Rem based
+  05r: 0.5rem,
+  08r: 0.8rem,
+  10r: 1rem,
+  12r: 1.2rem,
+  15r: 1.5rem,
+  18r: 1.8rem,
+  20r: 2rem,
+  25r: 2.5rem,
+  30r: 3rem,
+  40r: 4rem,
+
+  // Percentage based
+  10p: 10%,
+  20p: 20%,
+  50p: 50%,
+  100p: 100%
+);
+
+$radii: (
+  // Pixel based
+  4: 4px,
+  6: 6px,
+  8: 8px,
+  12: 12px,
+  16: 16px,
+  18: 18px,
+  20: 20px,
+
+  // Percentage based
+  50p: 50%,
+  100p: 100%
+);
+
+$font-sizes: (
+  065r: 0.65rem,
+  075r: 0.75rem,
+  08r: 0.8rem,
+  0875r: 0.875rem,
+  085r: 0.85rem,
+  09r: 0.9rem,
+  10r: 1rem,
+  11r: 1.1rem,
+  12r: 1.2rem,
+  15r: 1.5rem,
+  18r: 1.8rem,
+  20r: 2rem,
+  25r: 2.5rem
+);
+
+$font-weights: (
+  normal: 400,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800
+);
+
+$letter-spacing: (
+  m05: -0.5px,
+  1: 1px,
+  4: 4px
 );

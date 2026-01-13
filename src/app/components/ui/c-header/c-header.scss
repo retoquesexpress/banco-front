@@ -1,72 +1,71 @@
 .bank-header {
+  --header-bg: var(--mlt-sys-color-brand-primary);
+  --header-color: var(--mlt-sys-color-white);
+  --header-shadow: var(--mlt-sys-shadow-header);
+  --header-padding: var(--mlt-sys-spacer-0) var(--mlt-sys-spacer-32);
+  --header-height: var(--mlt-sys-width-70);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
-  height: 70px;
-  background-color: #003366; /* Azul bancario */
-  color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+  padding: var(--header-padding);
+  height: var(--header-height);
+  background-color: var(--header-bg);
+  color: var(--header-color);
+  box-shadow: var(--header-shadow);
+  font-family: var(--mlt-sys-font-textos1);
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+  &__logo-container {
+    display: flex;
+    align-items: center;
+    gap: var(--mlt-sys-spacer-10);
+  }
 
-.bank-logo {
-  width: 35px;
-  height: 35px;
-  background-color: #ffcc00; /* Color de acento (ej. Oro) */
-  border-radius: 4px;
-}
+  &__logo {
+    --logo-bg: var(--mlt-sys-color-brand-secondary);
+    --logo-radius: var(--mlt-sys-radius-4);
+    --logo-size: var(--mlt-sys-width-35);
 
-.bank-name {
-  font-size: 1.2rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+    width: var(--logo-size);
+    height: var(--logo-size);
+    background-color: var(--logo-bg);
+    border-radius: var(--logo-radius);
+  }
 
-.nav-links {
-  display: flex;
-  gap: 25px;
-}
+  &__name {
+    font-size: var(--mlt-sys-font-size-12r);
+    font-weight: var(--mlt-sys-font-weight-bold);
+    letter-spacing: var(--mlt-sys-letter-spacing-1);
+  }
 
-.nav-links a {
-  color: #e0e0e0;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.3s;
-}
+  &__user-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--mlt-sys-spacer-20);
+  }
 
-.nav-links a:hover, .nav-links a.active {
-  color: #ffffff;
-  border-bottom: 2px solid #ffcc00;
-}
+ 
 
-.user-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+ 
 
-.welcome-text {
-  font-size: 0.9rem;
-}
+  &__btn-logout {
+    --logout-btn-border: var(--mlt-sys-color-brand-secondary);
+    --logout-btn-color: var(--mlt-sys-color-brand-secondary);
+    --logout-btn-radius: var(--mlt-sys-radius-20);
+    --logout-btn-padding: var(--mlt-sys-spacer-8) var(--mlt-sys-spacer-16);
 
-.btn-logout {
-  background-color: transparent;
-  border: 1px solid #ffcc00;
-  color: #ffcc00;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
+    background-color: transparent;
+    border: 1px solid var(--logout-btn-border);
+    color: var(--logout-btn-color);
+    padding: var(--logout-btn-padding);
+    border-radius: var(--logout-btn-radius);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: var(--mlt-sys-font-weight-semibold);
 
-.btn-logout:hover {
-  background-color: #ffcc00;
-  color: #003366;
+    &:hover {
+      background-color: var(--mlt-sys-color-brand-secondary);
+      color: var(--mlt-sys-color-brand-primary);
+    }
+  }
 }

@@ -1,0 +1,8 @@
+@use "sass:map";
+@use '../01_utilities/_variables' as utilities;
+
+:root {
+    @each $key, $value in utilities.$font-sizes {
+        --mlt-sys-font-size-#{$key}: #{$value};
+    }
+}

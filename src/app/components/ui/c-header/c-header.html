@@ -1,18 +1,10 @@
 <header class="bank-header">
-  <div class="logo-container">
-    <div class="bank-logo"></div>
-    <span class="bank-name">Banco Confianza</span>
+  <div class="bank-header__logo-container">
+    <div class="bank-header__logo"></div>
+    <span class="bank-header__name">Banco Confianza</span>
   </div>
 
-  <nav class="nav-links">
-    <a routerLink="/dashboard" routerLinkActive="active">Resumen</a>
-    <a routerLink="/transferencias" routerLinkActive="active">Transferir</a>
-    <a routerLink="/tarjetas" routerLinkActive="active">Tarjetas</a>
-  </nav>
-
-  <div class="user-actions">
-    <span class="welcome-text">Hola, <strong>Juan Pérez</strong></span>
-    <button class="btn-logout">Salir</button>
+  <div class="bank-header__user-actions">
+    <button class="bank-header__btn-logout" (click)="logOut()">Log Out</button>
   </div>
 </header>
-

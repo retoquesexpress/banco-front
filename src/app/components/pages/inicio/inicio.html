@@ -1,47 +1,43 @@
-<div class="accounts-container">
-  <header class="summary-card">
-    <div class="summary-info">
-      <p class="summary-label">Saldo Total Consolidado</p>
-      <h1 class="total-amount">{{ getTotalBalance() | currency:'EUR':'symbol' }}</h1>
+<div class="accounts">
+  <header class="accounts__summary summary-card">
+    <div class="summary-card__info">
+      <p class="summary-card__label">Saldo Total Consolidado</p>
+      <h1 class="summary-card__amount">{{ getTotalBalance() | currency:'EUR':'symbol' }}</h1>
     </div>
     <button class="btn-primary">Nueva Cuenta</button>
   </header>
 
-  <div class="accounts-list">
-    <div class="list-header">
-      <span>Mis Cuentas Registradas</span>
-      <span class="count-badge">{{ accounts.length }} cuentas</span>
+  <div class="accounts__list accounts-list">
+    <div class="accounts-list__header">
+      <span class="accounts-list__title">Mis Cuentas Registradas</span>
+      <span class="accounts-list__badge">{{ accounts.length }} cuentas</span>
     </div>
 
     @for (account of accounts; track account.id) {
-      <div class="account-item">
-        <div class="account-visual" [style.background-color]="account.colorTag"></div>
+      <div class="account-item" routerLink="/cuenta">
+        <div class="account-item__visual" [style.background-color]="account.colorTag"></div>
         
-        <div class="account-details">
-          <span class="account-type">{{ account.type }}</span>
-          <span class="account-id">{{ account.accountNumber }}</span>
+        <div class="account-item__details">
+          <span class="account-item__type">{{ account.type }}</span>
+          <span class="account-item__id">{{ account.accountNumber }}</span>
         </div>
 
-        <div class="account-status">
-          @if (account.status === 'active') {
-            <span class="dot active"></span> Activa
-          } @else {
-            <span class="dot frozen"></span> Bloqueada
-          }
+        <div class="account-item__status">
+          <span class="account-item__dot" 
+                [ngClass]="account.status === 'active' ? 'account-item__dot--active' : 'account-item__dot--frozen'">
+          </span> 
+          {{ account.status === 'active' ? 'Activa' : 'Bloqueada' }}
         </div>
 
-        <div class="account-balance">
-          <span class="balance-value">{{ account.balance | currency:account.currency }}</span>
-          <span class="balance-label">Disponible</span>
+        <div class="account-item__balance">
+          <span class="account-item__balance-value">{{ account.balance | currency:account.currency }}</span>
+          <span class="account-item__balance-label">Disponible</span>
         </div>
 
-        <div class="account-actions">
-          <button class="btn-icon" title="Ver movimientos" routerLink="/cuenta">👁️</button>
-          <button class="btn-icon" title="Transferir">💸</button>
-        </div>
+        
       </div>
     } @empty {
-      <div class="empty-state">No tienes cuentas activas en este momento.</div>
+      <div class="accounts-list__empty">No tienes cuentas activas en este momento.</div>
     }
   </div>
 </div>
