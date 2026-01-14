@@ -19,6 +19,7 @@ export class LoginService {
 
     saveToken(token: string) {
         localStorage.setItem('Token', token);
+        this.isLogged.next(true);
     }
 
     getToken(): string | null {
@@ -33,6 +34,7 @@ export class LoginService {
     }
     logOut() {
         localStorage.removeItem('Token');
+        this.isLogged.next(false);
     }
 
 }

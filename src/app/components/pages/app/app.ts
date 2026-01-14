@@ -9,7 +9,7 @@ import { LoginService } from '../../../datos/Services/s-login';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('tienda-front');
+  protected readonly title = signal('Banco Confianza');
  
 
   loginService = inject(LoginService)

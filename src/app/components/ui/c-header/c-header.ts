@@ -15,7 +15,7 @@ export class CHeader {
 
     logOut() {
         this.loginService.logOut();
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
     }
 
 
