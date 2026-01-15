@@ -13,31 +13,33 @@
       <span class="accounts-list__badge">{{ accounts.length }} cuentas</span>
     </div>
 
-    @for (account of accounts; track account.id) {
-      <div class="account-item" routerLink="/cuenta">
-        <div class="account-item__visual" [style.background-color]="account.colorTag"></div>
-        
-        <div class="account-item__details">
-          <span class="account-item__type">{{ account.type }}</span>
-          <span class="account-item__id">{{ account.accountNumber }}</span>
-        </div>
-
-        <div class="account-item__status">
-          <span class="account-item__dot" 
-                [ngClass]="account.status === 'active' ? 'account-item__dot--active' : 'account-item__dot--frozen'">
-          </span> 
-          {{ account.status === 'active' ? 'Activa' : 'Bloqueada' }}
-        </div>
-
-        <div class="account-item__balance">
-          <span class="account-item__balance-value">{{ account.balance | currency:account.currency }}</span>
-          <span class="account-item__balance-label">Disponible</span>
-        </div>
-
-        
+    @for (account of accounts; track account.iban; let index = $index) {
+    <div class="account-item" routerLink="/cuentas/{{account.iban}}">
+      <div class="account-item__visual"
+        [style.background-color]="['#6366f1', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6'][index % 5]">
       </div>
+
+      <div class="account-item__details">
+        <span class="account-item__type">Cuenta Bancaria</span>
+        <span class="account-item__id">{{ formatIBAN(account.iban) }}</span>
+      </div>
+
+      <div class="account-item__status">
+        <span class="account-item__dot"
+          [ngClass]="account.balance >= 0 ? 'account-item__dot--active' : 'account-item__dot--frozen'">
+        </span>
+        {{ account.balance >= 0 ? 'Activa' : 'Bloqueada' }}
+      </div>
+
+      <div class="account-item__balance">
+        <span class="account-item__balance-value">{{ account.balance | currency:'EUR' }}</span>
+        <span class="account-item__balance-label">Disponible</span>
+      </div>
+
+
+    </div>
     } @empty {
-      <div class="accounts-list__empty">No tienes cuentas activas en este momento.</div>
+    <div class="accounts-list__empty">No tienes cuentas activas en este momento.</div>
     }
   </div>
 </div>

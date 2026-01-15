@@ -17,13 +17,20 @@ export class LoginService {
         return this.httpLogin.post<ILogin>(this.url + '/login', { userName, password });
     }
 
-    saveToken(token: string) {
-        localStorage.setItem('Token', token);
+    saveToken(token: string, dni: string) {
+        if (token) localStorage.setItem('Token', token);
+        if (dni && dni !== 'undefined' && dni !== 'null') {
+            localStorage.setItem('Dni', dni);
+        }
         this.isLogged.next(true);
     }
 
     getToken(): string | null {
         return localStorage.getItem('Token');
+    }
+
+    getDni(): string | null {
+        return localStorage.getItem('Dni');
     }
 
     isRegistered(): boolean {
@@ -34,6 +41,7 @@ export class LoginService {
     }
     logOut() {
         localStorage.removeItem('Token');
+        localStorage.removeItem('Dni');
         this.isLogged.next(false);
     }
 

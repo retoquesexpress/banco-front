@@ -6,7 +6,7 @@ import { loginGuard } from '../../../datos/Guards/login-guard';
 
 
 export const routes: Routes = [
-     {path: '', component: Login},
-     {path: 'cuentas', component: Inicio, canActivate: [loginGuard] },
-     {path: 'cuenta', component: Cuenta, canActivate: [loginGuard] },
+     { path: '', component: Login },
+     { path: 'cuentas', component: Inicio, canActivate: [loginGuard] },
+     { path: 'cuentas/:iban', component: Cuenta, canActivate: [loginGuard] },
 ];

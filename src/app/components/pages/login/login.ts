@@ -36,8 +36,14 @@ export class Login {
     this.loginService.login(this.LoginData.userName, this.LoginData.password).subscribe({
 
       next: data => {
-        this.loginService.saveToken(data.token);
-        this.router.navigate(['/cuentas']);
+        console.log('Login success data:', data);
+        if (data.clientDto && data.clientDto.dni) {
+          this.loginService.saveToken(data.token, data.clientDto.dni);
+          this.router.navigate(['/cuentas']);
+        } else {
+          console.error('El DNI no está presente en la respuesta:', data);
+          this.userAndPasswordErrorMessage = 'Error interno: No se pudo obtener la información del cliente.';
+        }
       },
       error: err => {
         console.log('Error del back:', err);

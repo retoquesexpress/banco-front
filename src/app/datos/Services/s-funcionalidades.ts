@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AccountMovement, Card } from '../Models/i-user-data';
+import {
+  AccountMovementDetailResponse,
+  CreditCardDetailResponse,
+  AccountResponse,
+  ClientDto
+} from '../Models/i-user-data';
 
 
 @Injectable({
@@ -9,30 +14,35 @@ import { AccountMovement, Card } from '../Models/i-user-data';
 })
 export class SFuncionalidades {
 
-  private miUrl = 'http://localhost:8080//api/clients';
+  private baseUrl = 'http://localhost:8080/api';
   private miHttp = inject(HttpClient);
 
 
-  getAllCreditCards(): Observable<Card[]> {
-    return this.miHttp.get<Card[]>(this.miUrl);
-  }
-  getCreditCard(id: number): Observable<Card> {
-    return this.miHttp.get<Card>(this.miUrl + "/" + id);
+  getAllCreditCards(iban?: string): Observable<CreditCardDetailResponse[]> {
+    const url = iban ? `${this.baseUrl}/credit-cards?iban=${iban}` : `${this.baseUrl}/credit-cards`;
+    return this.miHttp.get<CreditCardDetailResponse[]>(url);
   }
 
-  getAccountMovements(): Observable<AccountMovement[]> {
-    return this.miHttp.get<AccountMovement[]>(this.miUrl);
+  getCreditCard(id: number): Observable<CreditCardDetailResponse> {
+    return this.miHttp.get<CreditCardDetailResponse>(`${this.baseUrl}/credit-cards/${id}`);
   }
-  getAccountMovement(id: number): Observable<AccountMovement> {
-    return this.miHttp.get<AccountMovement>(this.miUrl + "/" + id);
-  } 
 
-  // getAccounts(): Observable<Account[]> {
-  //   return this.miHttp.get<Account[]>(this.miUrl);
-  // }
-  // getAccount(id: number): Observable<Account> {
-  //   return this.miHttp.get<Account>(this.miUrl + "/" + id);
-  // } 
- 
+  getAccountMovements(iban?: string): Observable<AccountMovementDetailResponse[]> {
+    const url = iban ? `${this.baseUrl}/movements/account/${iban}` : `${this.baseUrl}/movements`;
+    return this.miHttp.get<AccountMovementDetailResponse[]>(url);
+  }
+
+  getAccountMovement(id: number): Observable<AccountMovementDetailResponse> {
+    return this.miHttp.get<AccountMovementDetailResponse>(`${this.baseUrl}/movements/${id}`);
+  }
+
+  getAccounts(dni?: string): Observable<AccountResponse[]> {
+    const url = (dni && dni !== 'undefined') ? `${this.baseUrl}/accounts?dni=${dni}` : `${this.baseUrl}/accounts`;
+    return this.miHttp.get<AccountResponse[]>(url);
+  }
+
+  getAccount(iban: string): Observable<AccountResponse> {
+    return this.miHttp.get<AccountResponse>(`${this.baseUrl}/accounts/${iban}`);
+  }
 
 }

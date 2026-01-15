@@ -7,33 +7,32 @@
     <div class="cards-section__header">
       <h3 class="cards-section__title">Mis Tarjetas</h3>
     </div>
-    
+
     <div class="cards-section__grid">
-      @for (card of cards; track card.idCreditCard) {
-        <div class="payment-card" 
-             [ngClass]="card.idCreditCard === 1 ? 'payment-card--visa' : 'payment-card--mastercard'">
-            
-            <div class="payment-card__top">
-              <span class="payment-card__brand">{{ card.idCreditCard === 1 ? 'Visa' : 'Mastercard' }}</span>
-              @if (card.idCreditCard === 1) {
-                <span class="payment-card__badge">Principal</span>
-              }
-            </div>
-            
-            <div class="payment-card__number">
-              {{ card.cardNumber }}
-            </div>
-            
-            <div class="payment-card__bottom">
-              <div class="payment-card__client-info">
-                <span class="payment-card__client-name">{{ card.clientName }}</span>
-                <span class="payment-card__expiry">Exp: {{ card.expirationDate }}</span>
-              </div>
-              <div class="payment-card__chip"></div>
-            </div>
+      @for (card of cards; track card.idCreditCard; let index = $index) {
+      <div class="payment-card" [ngClass]="index === 0 ? 'payment-card--visa' : 'payment-card--mastercard'">
+
+        <div class="payment-card__top">
+          <span class="payment-card__brand">{{ index === 0 ? 'Visa' : 'Mastercard' }}</span>
+          @if (index === 0) {
+          <span class="payment-card__badge">Principal</span>
+          }
+        </div>
+
+        <div class="payment-card__number">
+          {{ formatCardNumber(card.cardNumber) }}
+        </div>
+
+        <div class="payment-card__bottom">
+          <div class="payment-card__client-info">
+            <span class="payment-card__client-name">{{ card.nombreCompleto }}</span>
+            <span class="payment-card__expiry">Exp: {{ formatExpirationDate(card.expirationDate) }}</span>
           </div>
+          <div class="payment-card__chip"></div>
+        </div>
+      </div>
       } @empty {
-        <p class="cards-section__empty-msg">No tienes tarjetas registradas.</p>
+      <p class="cards-section__empty-msg">No tienes tarjetas registradas.</p>
       }
     </div>
   </section>
@@ -61,39 +60,39 @@
         </thead>
         <tbody class="data-table__body">
           @for (pago of movements; track pago.idAccountMovement) {
-            <tr class="data-table__row data-table__row--hoverable">
-              <td class="data-table__td data-table__td--date">
-                {{ pago.date | date:'dd MMM yyyy' }}
-              </td>
+          <tr class="data-table__row data-table__row--hoverable">
+            <td class="data-table__td data-table__td--date">
+              {{ pago.date | date:'dd MMM yyyy' }}
+            </td>
 
-              <td class="data-table__td">
-                <div class="movement-info">
-                  <div class="movement-info__origin">{{ etiquetasOrigen[pago.originMovement] }}</div>
-                  <div class="movement-info__concept">{{ pago.concept }}</div>
-                  <div class="movement-info__ref">Origen: {{ pago.creditCardOrigin }}</div>
-                </div>
-              </td>
+            <td class="data-table__td">
+              <div class="movement-info">
+                <div class="movement-info__origin">{{ etiquetasOrigen[pago.originMovement] }}</div>
+                <div class="movement-info__concept">{{ pago.concept }}</div>
+                <div class="movement-info__ref">Origen: {{ formatCardNumber(pago.creditCardOrigin) }}</div>
+              </div>
+            </td>
 
-              <td class="data-table__td data-table__td--amount" 
-                  [ngClass]="pago.movementType === tipoMovimiento.RETIRAR ? 'data-table__td--negative' : 'data-table__td--positive'">
-                <span class="data-table__symbol">
-                  {{ pago.movementType === tipoMovimiento.RETIRAR ? '−' : '+' }}
-                </span>
-                {{ pago.amount | currency:'USD':'symbol':'1.2-2' }}
-              </td>
+            <td class="data-table__td data-table__td--amount"
+              [ngClass]="pago.movementType === tipoMovimiento.DEPOSITAR ? 'data-table__td--positive' : 'data-table__td--negative'">
+              <span class="data-table__symbol">
+                {{ pago.movementType === tipoMovimiento.DEPOSITAR ? '+' : '-' }}
+              </span>
+              {{ pago.amount | currency:'USD':'symbol':'1.2-2' }}
+            </td>
 
-              <td class="data-table__td">
-                <span class="status-badge" [ngClass]="'status-badge--' + pago.movementType.toLowerCase()">
-                  {{ pago.movementType }}
-                </span>
-              </td>
-            </tr>
+            <td class="data-table__td">
+              <span class="status-badge" [ngClass]="'status-badge--' + pago.movementType.toLowerCase()">
+                {{ pago.movementType }}
+              </span>
+            </td>
+          </tr>
           } @empty {
-            <tr class="data-table__row">
-              <td colspan="4" class="data-table__td data-table__td--empty">
-                No se han encontrado movimientos recientes.
-              </td>
-            </tr>
+          <tr class="data-table__row">
+            <td colspan="4" class="data-table__td data-table__td--empty">
+              No se han encontrado movimientos recientes.
+            </td>
+          </tr>
           }
         </tbody>
       </table>
