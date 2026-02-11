@@ -29,12 +29,10 @@ $colors: (
 );
 
 $widths: (
-  // Layout
   1100: 1100px,
   1000: 1000px,
   100p: 100%,
 
-  // Components
   320: 320px,
   200: 200px,
   420: 420px,
@@ -63,7 +61,6 @@ $shadows: (
 );
 
 $spacers: (
-  // Pixel based
   0: 0,
   2: 2px,
   4: 4px,
@@ -85,7 +82,6 @@ $spacers: (
   80: 80px,
   96: 96px,
 
-  // Rem based
   05r: 0.5rem,
   08r: 0.8rem,
   10r: 1rem,
@@ -97,7 +93,6 @@ $spacers: (
   30r: 3rem,
   40r: 4rem,
 
-  // Percentage based
   10p: 10%,
   20p: 20%,
   50p: 50%,
@@ -105,7 +100,6 @@ $spacers: (
 );
 
 $radii: (
-  // Pixel based
   4: 4px,
   6: 6px,
   8: 8px,
@@ -114,7 +108,6 @@ $radii: (
   18: 18px,
   20: 20px,
 
-  // Percentage based
   50p: 50%,
   100p: 100%
 );

@@ -9,7 +9,7 @@ import { ILogin } from '../Models/i-login';
 export class LoginService {
     isLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     isLogged$ = this.isLogged.asObservable();
-    url = 'http://localhost:8080/api/auth';
+    url = 'http://localhost:8081/api/auth';
     httpLogin = inject(HttpClient);
 
 
